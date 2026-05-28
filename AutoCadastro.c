@@ -108,7 +108,7 @@ int main()
     int opcaoacesso, i, continuar = 1;
 
     char nUsuario[40], ncpf[12], nModeloCarro[40], nMarca[30], nAno[15];
-    char nTipo[30], nCor[30], nEndereco[50], nPlaca[8];
+    char nTipo[30], nCor[30], nEndereco[50], nPlaca[8], nNumero[14];
 
     char nPerguntas[][50] = {
         "Nome de Usuario",   // 0
@@ -119,7 +119,8 @@ int main()
         "Tipo de Veiculo",   // 5
         "Cor do Veiculo",    // 6
         "Endereco",          // 7
-        "Placa do Carro"     // 8
+        "Placa do Carro" ,   // 8
+        "Número de Telefone do Usuario" // 9
     };
 
     char *destinos[] = {
@@ -131,7 +132,8 @@ int main()
         nTipo,        // 5
         nCor,         // 6
         nEndereco,    // 7
-        nPlaca        // 8
+        nPlaca,       // 8
+        nNumero       // 9
     };
 
     do
@@ -151,7 +153,7 @@ int main()
         switch (opcaoacesso)
         {
         case 1:
-            for (i = 0; i < 9; i++)
+            for (i = 0; i < 10; i++)
             {
                 /*
                 Esse codigo se repete 9 vezes, nas 9 vezes ele cicla por uma variavel com varias strings que vai dizer o que
@@ -177,7 +179,7 @@ int main()
                     printf("Sua placa e invalida.\n");
                     i--;
                 }
-                else if (i == 8)
+                else if (i == 9)
                 {
                     char nid[17];
                     gerarID(nid);
@@ -202,6 +204,7 @@ int main()
                         fprintf(arquivo, "Cor do Veiculo: %s\n", nCor);
                         fprintf(arquivo, "Endereco: %s\n", nEndereco);
                         fprintf(arquivo, "Placa: %s\n", nPlaca);
+                        fprintf(arquivo, "Numero do Usuario: %s\n", nNumero);
                         fprintf(arquivo, "ID: %s\n", nid);
                         fprintf(arquivo, "==========================\n");
                         fclose(arquivo);
